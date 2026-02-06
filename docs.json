@@ -1,13 +1,14 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Throney Documentation",
+  "description": "Enhance your guild management in Throne and Liberty with Throney. Simplify your alliance operations with innovative features for tracking members, automating gear input, organizing events, managing war parties, and optimizing guild composition with ease.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#97BA1C",
+    "light": "#97BA1C",
+    "dark": "#97BA1C"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
@@ -18,37 +19,40 @@
             "pages": [
               "introduction",
               "quickstart",
-              "development"
+              "frequently-asked-questions"
+            ]
+          },
+                    {
+            "group": "Development",
+            "pages": [
+              "updates/changelog"
+            ] 
+          },
+          {
+            "group": "Commands",
+            "pages": [
+              "commands/user-commands",
+              "commands/officer-commands"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Features",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
+              "features/characters",
+              "features/attendance",
+              "features/war-parties",
+              "features/signups",
+              "features/dkp",
+              "features/wishlists",
+              "features/leaderboard",
+              "features/players",
+              "features/statistics"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Tutorials",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "tutorials/setup"
             ]
           }
         ]
@@ -58,44 +62,38 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.throney.gg",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "href": "https://discord.com/invite/KkhwKu4ns6",
+          "icon": "discord"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/favicon.ico",
+    "dark": "/logo/favicon.ico"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@throney.gg"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Website",
+      "href": "https://www.throney.gg"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/throneygg",
+      "youtube": "https://www.youtube.com/@ThroneyBot"
     }
   }
 }

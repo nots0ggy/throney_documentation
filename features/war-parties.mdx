@@ -1,0 +1,90 @@
+---
+title: "Loadouts (War Party Management)"
+description: "Guide to managing parties using Throney's Loadouts system, the evolution of the original War Party system."
+---
+
+Throney's **Loadouts System** is the next evolution of the original **War Party Management** feature.
+
+<Info>
+  This feature replaces the older War Party system. Loadouts provide significantly more flexibility, including static templates, class-based party assignments, and dynamic party editing.
+</Info>
+
+---
+
+## 🔄 Transition from War Parties
+
+Previously, War Parties allowed officers to manually organize members into preset static groups and post them to Discord.  
+With the new **Loadouts System**, officers now have even greater automation and control:
+
+- Create **Player-Based Templates** or **Class-Based Templates**.
+- Automatically fill parties based on event signups.
+- Freely edit or re-import loadouts as needed.
+- Post party setups directly to Discord with the `/loadout` command.
+
+Party setup happens faster, more accurately, and with less manual effort.
+
+---
+
+## 📋 How Loadouts Work
+
+### 🛠 Creating a Loadout
+
+1. Navigate to your **Alliance Dashboard**.
+2. Select **Loadouts**.
+3. Choose to create a **Player Template** or a **Class Template**.
+4. Set up parties:
+   - **Player Template**: Assign specific players to each party slot.
+   - **Class Template**: Assign role types (Tank, MDPS, RDPS, Healer, Bomber) to each slot.
+
+### 🧩 Importing a Loadout
+
+When you **import** a loadout into a Event Signup:
+
+- **Current party data is wiped**.
+- The system generates parties based on your selected template.
+
+**Player Templates**:
+- Checks if the player is attending.
+- If absent, leaves the slot empty.
+
+**Class Templates**:
+- Randomizes the attending list.
+- Fills roles in party order, prioritizing earlier parties.
+- Later parties may remain partially empty if there aren't enough players.
+
+After importing:
+- You can **manually adjust parties**, **move players**, or **re-import** another loadout if needed.
+
+---
+
+## 📌 Features in Loadouts
+
+- ✅ **Role-Based Party Visuals** – Players show colored bands based on their role (Tank, Healer, MDPS, RDPS, Bomber).
+- ✅ **Character Role Legend** – Always visible to understand color codes.
+- ✅ **Hover Tooltips** – Hover over role icons to see their meaning.
+- ✅ **User Search & Class Filter** – Quickly find players in the unsorted pool.
+- ✅ **Support for Dynamic Events** – Loadouts directly integrate with Signups.
+- ✅ **Officer `/loadout` Command** – Displays **current party setups inside Discord**, allowing officers to post parties similar to the original War Party system.
+
+---
+
+## 🛑 Deprecated
+
+- ❌ The old `/party` command has been **removed**.
+- ❌ The original "War Party" feature is now **archived** for historical reference only.
+
+All future static party management should use the **Loadouts System** and `/loadout` command.
+
+---
+
+## 🎯 Benefits of Loadouts
+
+✔️ **Save Time** – Set up parties automatically based on signups.  
+✔️ **Adapt Quickly** – Edit and reorganize on the fly.  
+✔️ **Better Visibility** – Visual party displays with color coding and labels.  
+✔️ **Discord Posting** – Post finalized party setups directly to your server with `/loadout`.  
+✔️ **Flexibility** – Build static groups or flexible dynamic groups easily.
+
+---
+
+📚 For more info, visit the [Throney Dashboard](https://www.throney.gg) or check the [Documentation Hub](https://docs.throney.gg).
