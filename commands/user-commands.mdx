@@ -1,0 +1,145 @@
+---
+title: "User Commands"
+description: "Comprehensive guide to commands available for all Throney users, facilitating effective guild management and personal profile enhancements."
+---
+
+Throney offers a suite of commands empowering users to manage their profiles, gear, and engage seamlessly within their guilds. Below is a detailed guide to each command, its usage, and benefits.
+
+## 📜 Command Overview
+
+| Command      | Description                                                                                 |
+| -----------  | ------------------------------------------------------------------------------------------- |
+| `/upload`    | Upload your gear by attaching a full screenshot of your character's profile page.           |
+| `/profile`   | View your own or another user's gear set by mentioning them.                                |
+| `/stats`     | Upload your build stats, including Hit Chance, Critical Hit Chance, Evasion, and Endurance. |
+| `/builds`    | Display available class names and their associated weapon combinations.                     |
+| `/help`      | Show a list of available commands for both members and officers.                            |
+| `/absent`    | Mark yourself as absent for a set timeframe and provide a reason.                          |
+| `/return`    | Return from an absence early and restore your active status.                               |
+| `/wishlist`  | Add an item to your wishlist with a priority level and an optional note.                   |
+| `/dkp`       | Check your current DKP balance.                                                             |
+| `/mywishlist` | View your personal wishlist.                                                              |
+| `/removewishlist` | Remove an item from your wishlist.                                                    |
+
+## `/upload`
+
+Upload your current gear to Throney's database, allowing for accurate tracking and display within your guild.
+
+```bash
+/upload
+/upload [user] *Officer Only Command*
+```
+
+![](/images/upload.png)
+
+## `/profile`
+
+View your own gear setup or inspect another guild member's equipment
+
+```bash
+/profile
+/profile @username
+```
+
+![](/images/profile.png)
+
+## `/stats`
+
+Upload and display your build statistics, providing leadership with insights into member capabilities.
+
+```bash
+/stats
+/stats [user] *Officer only Command*
+```
+
+Attach a screenshot that displays your Hit Chance, Critical Hit Chance, Evasion, and Endurance. While optional, this command is highly recommended as it allows officers to analyze guild statistics and determine build trends.
+
+![](/images/stats.png)
+
+## `/builds`
+
+Explore available classes and their corresponding weapon combinations.
+
+```bash
+/builds
+```
+
+### 📜 Example Class & Weapon Combinations
+
+| Class         | Weapons                       |
+| ------------- | ----------------------------- |
+| **Crusader**  | Greatsword + Sword and Shield |
+| **Seeker**    | Longbow + Wand                |
+| **Berserker** | Sword and Shield + Daggers    |
+| **Ravager**   | Greatsword + Daggers          |
+| **Templar**   | Sword and Shield + Wand       |
+
+## `/absent`
+
+Use this command to mark yourself as absent for a specific timeframe. This will be logged in your profile and eventually reflected on the Throney dashboard and Dynamic Events (Signups).
+
+typing /absent opens up a form, which asks for information related to your leave of absence.
+
+```bash
+/absent <From> <To> <Reason>
+```
+
+Absences automatically prevent you from appearing in Signups (Dynamic Events).
+Officers can view absences in user profiles after T2 launch.
+
+## `/return`
+Allows you to return from an absence early, restoring your active status.
+
+```bash
+/return
+```
+
+This will update your status back to active in the system.
+Your participation in Signups (Dynamic Events) will be back to normal when this feature is fully integrated.
+
+
+🛠 Future Enhancements for Absence Tracking
+- Officers will see absences on the dashboard after T2 launch.
+- Users marked as absent will automatically be removed from event signups.
+- Possible automated role adjustments for absent players.
+
+## `/wishlist`
+
+The `/wishlist` command allows users to add items they want to a wishlist with a priority level and an optional note.
+
+```bash
+/wishlist <priority> <item> [Optional: note]
+```
+### **Priority Levels**
+* high 🔴
+* medium 🟡
+* low 🟢
+
+Items are found by searching for the name of the item.
+Optional: Users can add a note for more details.
+
+## `/dkp`
+
+view your dkp balance as an epherial message
+
+```bash
+/dkp
+```
+
+## `/mywishlist`
+
+View your wishlist as an ephemeral message.
+
+```bash
+/mywishlist
+```
+
+## `/removewishlist`
+
+Remove an item from your wishlist.
+
+```bash
+/removewishlist <item>
+```
+
+Search for the item name and select it. The item is removed from your wishlist immediately.

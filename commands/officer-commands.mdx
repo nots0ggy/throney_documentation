@@ -1,0 +1,251 @@
+---
+title: "Officer Commands"
+description: "Comprehensive guide to commands available for officers in Throney, allowing advanced management of guilds, alliances, and members."
+---
+
+Officers in Throney have access to advanced commands that facilitate better guild and alliance management. These commands provide tools for editing data, tracking members, and optimizing group efficiency.
+
+## 📜 Command Overview
+
+| Command                  | Description                                                                                    |
+| ------------------------ | ---------------------------------------------------------------------------------------------- |
+| `/attendance`            | Take attendance for events, logging participation automatically.                               |
+| `/upload [image] [user]` | Upload an image for another member, allowing officers to update their gear data.               |
+| `/stats [image] [user]`  | Upload an image for another member's stats, updating their build details.                      |
+| `/edit`                  | Manually edit a user's data in case of OCR errors.                                             |
+| `/delete`                | Remove a user's data from the system, typically used when a member leaves the guild.           |
+| `/alliance info`         | Provides an overview of all guilds in the alliance, including gear averages and composition.   |
+| `/alliance members`      | Displays a sortable list of all members across the entire alliance.                            |
+| `/guild info`            | Displays a breakdown of a specific guild’s members and their statistics.                       |
+| `/guild members`         | Lists all members within a specific guild and sorts them by a variable such as combat power.   |
+| `/remind [days]`         | Sends a DM reminder to members who have not updated their gear within the specified timeframe. |
+| `/alliance check`        | Displays a list of members in the alliance who have not uploaded their gear.                   |
+| `/events`                | Lists all upcoming events and their assigned DKP values.                                       |
+| `/party`                 | Publishes a static war party from the dashboard into Discord.                                  |
+| `/adjust [award]`        | Grants DKP points to a user.                                                                   |
+| `/adjust [deduct]`       | Deducts DKP points from a user.                                                                |
+| `/topwishlist`           | Displays the most desired items based on wishlist data.                                       |
+| `/checkwishlist`         | Allows officers to check a specific user's wishlist.                                          |
+| `/bonus`                 | Take attendance not tied to a specific event type (ad-hoc DKP awards).                        |
+| `/bulkadjust [award/deduct]` | Award or deduct DKP for all registered members at once.                                  |
+| `/loadout`               | Display alliance loadout party compositions in Discord.                                       |
+
+
+## `/attendance`
+
+Logs attendance at the end of an event and tracks member participation. Officers can choose an event from a custom list created by the officer core. This command also integrates DKP values by assigning a configurable 'weight' to each event, allowing officers to track contributions effectively.
+
+```bash
+/attendance
+```
+
+## `/edit`
+
+Manually edit a user's data input in case of OCR errors. While we strive to make sure Throney is as accurate as possible, mistakes happen. this command is to correct them!
+
+Officers can modify gear information if it was misread by the OCR. This is particularly useful for names with non-English characters.
+
+```bash
+/edit
+```
+
+### 📸 **Example of an Edit Panel**
+
+![](/images/edit2.png)
+
+## `/delete`
+
+Remove a user's data from the system, typically when they leave the guild.
+
+```bash
+/delete
+```
+
+This command ensures that former members are no longer included in guild statistics.
+
+## `/alliance info`
+
+Provides an overview of all guilds in the alliance, including gear averages and composition.
+
+```bash
+/alliance info
+/alliance info [guilds] [classes]
+```
+
+### 📸 **Example of a `/alliance info` output**
+
+Below is an example of a properly executed /alliance info command with guilds and classes enabled:
+![](/images/allianceinforesults.png)
+
+## `/alliance members`
+
+Displays a sortable list of all members across the entire alliance.
+
+```bash
+/alliance members
+/alliance members [sort] [class]
+```
+
+### 📸 **Example of a `/alliance members` output**
+
+Below is an example of a properly executed /alliance members command with the class Infiltrator as a filter and combat power as a metric
+
+![](/images/alliancemembers3.png)
+
+## `/guild info`
+
+Displays a breakdown of a specific guild’s members and their statistics.
+
+```bash
+/guild info
+/guild info [name] [classes]
+```
+
+### 📸 **Example of a `/guild info` output**
+
+Below is an example of a properly executed /guild info command with Guild A chosen
+
+![](/images/guildinfo.png)
+
+## `/guild members`
+
+Lists all members within a specific guild and sorts them by a metric such as combat power.
+
+```bash
+/guild members
+/guild members [name] [sort] [classes]
+```
+
+### 📸 **Example of a `/guild members` output**
+
+Below is an example of a properly executed /guild members command with Guild A and Ravager chosen sorting by combat power.
+
+![](/images/guildmembers3.png)
+
+## `/remind [days]`
+
+Sends a DM reminder to members who have not updated their gear within the specified timeframe.
+
+```bash
+/remind
+```
+
+Officers can specify the number of days since the last update, and the bot will notify members who have not refreshed their gear. This helps ensure all player data remains up-to-date.
+
+## `/alliance check`
+
+Displays a list of members in the alliance who have not uploaded their gear.
+
+```bash
+/alliance check
+```
+
+### 📸 **Example of an Alliance Check Report**
+
+![](/images/check.png)
+
+in this case, Vig from Guild A has not yet uploaded their gear and you can DM them to do so. the bot will not automatically DM them.&#x20;
+
+## `/events`
+
+Lists all upcoming events and their assigned DKP values.
+
+```bash
+/events
+```
+
+### 📸 **Example of Event List**
+
+![](/images/events.png)
+
+<Note>
+  The points next to each event is the DKP value of the event.
+</Note>
+
+## `/party`
+
+Publishes a static war party from the dashboard into Discord.
+
+```bash
+/party
+```
+
+### 📸 **Example of a War Party Post**
+
+![](/images/party.png)
+
+<Warning>
+  if there is an empty party in the profile chosen, it will return an error when trying to post it into the discord
+</Warning>
+
+## `/adjust [award]`
+
+Allows officers to manually **award** DKP points to a user.
+
+```bash
+/adjust [award] [user] [amount]
+/adjust award @user 50
+```
+
+This command is used to reward members for participation, achievements, or any custom criteria set by the guild.
+
+## `/adjust [deduct]`
+
+Allows officers to manually deduct DKP points from a user.
+
+```bash
+/adjust [deduct] [user] [amount]
+/adjust deduct @user 50
+```
+
+This command is used to remove DKP points for penalties, missed events, or other guild-related reasons.
+
+## `/checkwishlist`
+
+Allows an officer to check a specific users wishlist in discord
+
+```bash
+/checkwishlist @user
+```
+This command helps officers track what users are looking for and better manage loot distribution.
+
+## `/topwishlist`
+
+Allows the officers to check the top 10 most desired items with prioritized requests
+
+```bash
+/topwishlist
+```
+This provides officers with insight into which items are in the highest demand.
+
+## `/bonus`
+
+Take attendance for members in the voice channel without tying it to a specific event type. Useful for ad-hoc activities like helping with guild tasks, donations, or off-schedule participation.
+
+```bash
+/bonus
+```
+
+Works identically to `/attendance` but records as a "bonus" attendance type.
+
+## `/bulkadjust`
+
+Award or deduct DKP for all registered members in your alliance at once.
+
+```bash
+/bulkadjust award 50
+/bulkadjust deduct 25
+```
+
+All bulk operations are logged in the audit trail with the officer who executed them.
+
+## `/loadout`
+
+Display alliance loadout party compositions directly in Discord. Shows party breakdowns with character names and roles.
+
+```bash
+/loadout
+```
+
+Skips empty parties or loadouts with no members. Replaces the older `/party` command which has been removed.
+

@@ -1,0 +1,133 @@
+---
+title: "Loot Systems"
+description: "Detailed breakdown of Throney’s two loot distribution systems: DKP Item Listings and DKP Loot Auctions."
+---
+
+Throney offers three systems for managing loot in your alliance:
+
+1. **Loot Bank**: Upload guild storage screenshots and AI extracts items for routing to auctions or listings.
+2. **DKP Item Listings**: Simple upgrade/trait/litho bidding via Discord reactions.
+3. **DKP Loot Auctions**: Live, DKP-based bidding with automatic deductions.
+
+All systems are fully integrated with the Throney Dashboard and Discord.
+
+---
+
+## 📦 Loot Bank (AI-Powered Item Import)
+
+The Loot Bank lets officers upload screenshots of their guild's item storage chest. Throney's AI extracts all visible items and matches them against the full game database (2000+ items).
+
+### How It Works
+
+1. Go to **Loot Bank** on the dashboard
+2. Upload one or more screenshots of your guild storage
+3. AI extracts item names and fuzzy-matches them to the database
+4. Review the results. Search and reassign items if the AI got one wrong.
+5. Select items and route them to **Auctions** or **Item Listings** in bulk
+
+Multi-screenshot support means you can upload your entire storage chest at once.
+
+---
+
+## 📦 DKP Item Listings (Upgrade / Trait / Litho)
+
+This system lets officers post an item to Discord and have users respond by selecting one of three interest categories:
+
+- 🔺 **Upgrade** — High-priority gear for your main build.
+- 🧬 **Trait** — Secondary spec or trait-related interest.
+- 💎 **Litho** — Desired for lithograph crafting or exchange.
+
+### 📌 How to Create a DKP Item Listing
+
+1. Go to the **[Throney Dashboard](https://www.throney.gg)**.
+2. Navigate to your **Alliance Dashboard**.
+3. Under the **Item Panel**, click **Manage Items**.
+4. Hit **"Add New Item"** and fill out the following:
+
+- **Channel** – Where the item post will appear in Discord.
+- **Item** – Choose from your guild’s loot list.
+- **Notes** – Optional explanation or rules.
+
+Once submitted, the bot posts the item to Discord with reactions for Upgrade, Trait, and Litho.
+
+### 🧠 System Behavior
+
+- Once a member reacts, the bot **marks them as responded**.
+- Officers can **award the item** via the dashboard — the system will:
+  - **Deduct DKP**
+  - **Reject all other bidders automatically**
+
+You can also use our internal "roll" system to roll the item between the reacted members.
+
+> ⚠️ Always delete listings from the dashboard — not from Discord — to avoid sync issues.
+
+---
+
+## 🏦 DKP Loot Auction System (Live Bidding)
+
+This is a **separate, advanced system** designed for real-time, competitive bidding.
+
+### 📌 Features
+
+- Officers can:
+  - Set **starting bid**
+  - Set **bid increment**
+  - Configure the **Discord channel**
+  - Define the **auction end time** (manual or auto)
+
+- Members can:
+  - Click **Bid** in Discord
+  - Have DKP **automatically deducted**
+  - Re-bid as long as they have balance (configurable soon)
+
+### ⚙️ Staff Tools
+
+- End auction manually from the dashboard
+- Delete auction listings (also removes the Discord message)
+- Void individual bids from the dashboard
+- Auction visibility & history stored on the dashboard
+
+> Auctions created on the dashboard take ~1-2 minutes to sync to Discord.
+
+### Blind Auctions
+
+Blind auctions (Vickrey-style) keep all bid information private. Bidder names, bid amounts, and real-time updates are hidden from other members. Only the winner is revealed when the auction ends.
+
+### Outbid Notifications
+
+When someone places a higher bid on an auction, the previous highest bidder receives a DM notification so they can bid again if they choose.
+
+### Bid Safety
+
+All bids use atomic database transactions to prevent DKP double-spend during race conditions. If two members bid at the same time, the system processes them safely in order.
+
+---
+
+## ⚖️ Which Should I Use?
+
+| Feature                     | DKP Item Listings       | DKP Loot Auction       |
+|----------------------------|-------------------------|------------------------|
+| Bidding Type               | Reaction-based          | Live auction system    |
+| Member Control             | Single reaction         | Real-time DKP bidding  |
+| DKP Deduction              | On item award           | Immediate per bid      |
+| Staff Control              | Dashboard only          | Dashboard (full tools) |
+| Use Case                   | Simpler loot, fewer users | High-competition loot |
+
+---
+
+---
+
+## `/bulkadjust` (Officer Command)
+
+Award or deduct DKP for all registered members in your alliance at once. Useful for season resets, weekly bonuses, or alliance-wide penalties.
+
+```bash
+/bulkadjust award 50
+/bulkadjust deduct 25
+```
+
+All bulk operations are logged in the audit trail.
+
+---
+
+For all loot systems and documentation updates, visit the [Throney Dashboard](https://www.throney.gg) or check the [Changelog](https://docs.throney.gg/updates/changelog).

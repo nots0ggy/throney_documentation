@@ -1,0 +1,949 @@
+---
+title: "Changelog"
+description: "All updates, improvements, and features added to Throney."
+---
+
+A chronological list of all updates to the bot and dashboard.
+
+---
+
+## February 5th, 2026 | v2.7.0
+**UX Overhaul**
+
+### Onboarding & Setup
+- New alliances now see a step-by-step setup checklist on the alliance home page
+- Setup progress card tracks guild configuration, default channels, roles, and timezone
+- Checklist auto-hides once all steps are complete
+
+### Event Management
+- Bulk select and delete events from both Scheduled Events and Attendance Tracking tables
+- Event rows now have dropdown menus with quick actions (View, Archive, Delete)
+- Calendar view toggle added to event pages (List and Calendar tabs)
+- Absent players are highlighted with an alert banner on event detail pages
+
+### Navigation & Terminology
+- "Signup Events" renamed to "Scheduled Events"
+- "Attendance Events" renamed to "Attendance Tracking"
+- Tooltips added to sidebar sections explaining each feature
+- New Settings Hub consolidates all configuration pages into one place
+- Billing link added to the sidebar for quick subscription access
+- "Configure defaults" links added to event creation forms
+
+### Dashboard
+- Recent Activity feed shows the latest events across all alliances
+- Player profiles now show recent attendance and signup history
+- Empty states now include action buttons and helpful descriptions
+
+### Bot Fixes
+- Fixed class detection returning weapon combos instead of class names for non-English game clients
+- Added programmatic weapon-to-class fallback for all 35 classes
+
+### Bug Fixes
+- Fixed broken item links in wishlists, auctions, and listings (URLs pointed to wrong path)
+
+---
+
+## January 28th, 2026 | v2.6.0
+**Loot Bank System**
+
+### Loot Bank
+- Upload guild storage screenshots and AI extracts all items automatically
+- Fuzzy matching against 2000+ game items corrects OCR artifacts
+- Multi-screenshot support for large storage chests
+- Select extracted items and route them directly to auctions or listings
+- Manual search and reassignment when AI matching needs correction
+- New UI with hero sections and sortable tables
+
+### Bot Updates
+- `/removewishlist` command lets members remove items from their wishlist in Discord
+- DKP breakdown now shown in profile embeds
+- Improved error messages across all bot interactions
+
+---
+
+## January 27th, 2026 | v2.5.0
+**Auction System Overhaul**
+
+### Auctions
+- All bids now use atomic database transactions to prevent DKP double-spend during race conditions
+- Blind auctions fully private: bidder names, amounts, and real-time updates hidden from other members
+- Outbid DM notifications sent to members when someone places a higher bid
+- Redesigned auction creation form with grouped sections and item preview
+
+### Bot Updates
+- Auction embeds updated to reflect blind auction privacy
+- Fixed edge cases where auction status checks failed on closed auctions
+
+---
+
+## January 24th, 2026 | v2.4.0
+**Gear Progression & UI Improvements**
+
+### Gear Progression
+- Interactive Combat Power history chart on player profiles
+- Click any point on the chart to see full stat snapshots at that moment
+- Delta comparisons show changes between snapshots
+
+### Dashboard Improvements
+- Leaderboard role cards display in 2 columns
+- Officers can remove individual items from member wishlists
+- Player profile page redesigned with role-based gradients and quick stats
+- Audit logs now have search, system filters, and color-coded badges
+
+### Bot Updates
+- Bot now creates gear progression snapshots on each `/upload`
+- Snapshots only recorded when combat power changes (no duplicate data)
+
+---
+
+## January 23rd, 2026 | v2.3.0
+**Alliance Customization & Leaderboards**
+
+### Class Role Customization
+- Per-alliance class role settings: customize which classes map to which roles
+- Overrides apply across all Throney features (leaderboards, party builder, statistics)
+
+### Leaderboards
+- Alliance-wide leaderboards by role, DKP, attendance, and combat power
+- Filter and sort across all members in your alliance
+
+### Alliance Settings
+- New dedicated settings page for default channels and form configuration
+- Sidebar redesigned with better organization and grouping
+
+### Bot Updates
+- Orb weapon added with 8 new classes: Crucifix, Enigma, Guardian, Justicar, Lunarch, Oracle, Polaris, Scryer
+- Class role overrides synced between dashboard and bot
+- Updated class emote IDs
+
+---
+
+## Late 2025 | v2.0 through v2.2
+**Major Platform Updates**
+
+### Portuguese Language Support
+- `/upload` now correctly detects Portuguese class names and translates them to English
+- Full Portuguese class name mapping for all 35 classes
+- Multi-language class detection for screenshots in any language
+
+### GPT-5.2 OCR Integration
+- Character screenshot extraction upgraded to GPT-5.2 for better accuracy
+- Regex-based stats extraction with spatial analysis as verification layer
+- Combat power, stats, and hit chance values parsed more reliably
+
+### Attendance System Expansion
+- `/bonus` command: identical to `/attendance` but not tied to a specific event type
+- Access Code system: officers generate a keyword, members enter it after the event to self-register attendance
+- Attendance types expanded: automatic, manual, access_code, bonus
+- CSV attendance reports generated and sent to officers
+- Officer DM notifications on attendance actions
+- Redesigned attendance and bonus embeds
+
+### Bulk DKP Management
+- `/bulkadjust` command: award or deduct DKP for all registered users at once
+- Full audit logging for bulk operations
+
+### Guild Statistics Page
+- Alliance-wide and per-guild analytics
+- Role composition charts with expandable breakdowns
+- Event performance metrics and engagement scores
+- Activity stats with time period toggles
+
+### Subscription & Pricing
+- Pricing updated to $7.50/month
+- Redesigned subscription and cancellation pages
+
+### Other Changes
+- `/delete` command now requires confirmation before removing a character
+- Data protection added for GameItem deletions
+- Various UI polishes across all dashboard pages
+
+---
+
+## May 14th, 2025 | v1.73
+**System Enhancements Across Loadouts, Attendance, Auctions & More**
+
+### 🧩 Loadout Builder QoL Additions
+
+- ✅ Added the ability to **duplicate loadouts** for faster template creation.
+- ✅ Introduced **class filtering checkboxes** with color-coded UI.
+- 🔧 Ongoing: UI refinements are in progress for a smoother Loadout experience.
+
+---
+
+### 📋 Signups & Loadout Enhancements
+
+- ✅ Added **player/class search** in the team builder view.
+- ✅ Signup Events page now separates events into **Current**, **Upcoming**, and **Archived**.
+- ✅ Improved drag-and-drop logic:
+  - Visual previews now render while dragging.
+  - Clear drop zones and hover overlays.
+  - Tip: Drag over the "handles" of other parties for precise placement.
+- ✅ Various UI and performance optimizations throughout.
+
+---
+
+### 📅 Attendance System Overhaul
+
+- ✅ Introduced the `/bonus` command — identical to `/attendance`, but not tied to a specific event.
+- ✅ Launched the **Access Code system**:
+  - Allows users to enter a secret code to register attendance after the event.
+- ✅ Attendance types now include:
+  - `automatic`: From `/attendance`
+  - `manual`: Added via dashboard
+  - `access_code`: Submitted by keyword
+  - `bonus`: Logged from `/bonus`
+- ✅ Full **DKP History Integration** for all attendance-related actions.
+- ✅ You can now only manually add members who are marked as **absent**.
+- ✅ Participation stats are visible in the **website profile** and via `/profile`.
+- ✅ Custom DMs are automatically sent when appropriate.
+
+---
+
+### 📬 Custom Direct Message System
+
+- ✅ Scalable mass DM system implemented with built-in **rate-limit protections**.
+- ✅ Currently powers attendance alerts, absence reminders, and more.
+
+---
+
+### 💎 Auction System Enhancements
+
+- ✅ You can now **void bids** manually from the dashboard.
+- ✅ Integrated with the **Trait / Litho / Upgrade** system.
+- ✅ Added support for **Blind Auctions** (Vickrey-style).
+- ✅ Bidders can now enter **custom bid amounts**.
+- ✅ Improved configuration UI for setting up new auctions.
+
+---
+
+### 📖 Audit Logs Integration
+
+- ✅ Unified audit log added per alliance — tracking:
+  - Attendance updates
+  - Loot activity
+  - Signup activity
+  - Profile changes
+  - Other major actions
+
+---
+
+### 🐛 Bug Fixes
+
+- ✅ Fixed a database sync issue that was preventing new auctions from being posted.
+- ✅ Patched schema mismatch caused by the Trait/Litho/Upgrade system between Discord and the website.
+
+---
+
+### 🧮 Signups Widget Fix
+
+- ✅ Fixed an issue where the Signups widget was showing incorrect attendance counts.
+- ✅ The event summary card now also shows:
+  - Unknown users (have not responded)
+  - Ineligible users (missing the required role)
+
+---
+
+### 🗑️ Deprecated Features
+
+- ❌ Removed **Guild Profiles**.
+- ❌ Removed the legacy **Guild Party Builder** — all party management should now use the **Loadout Builder**.
+
+---
+
+### ✨ QoL Improvements
+
+- ✅ Removed email address from the sidebar.
+- ✅ Email on the `/account` page is now **censored for privacy**.
+- ✅ Renamed **“Alliance Dashboard”** to **“Alliance Home”** to avoid confusion with the `/dashboard` route.
+
+---
+
+
+## 🗓️ April 27th, 2025 – ⚙️ Patch v1.61  
+**Audit Logs Beta + Attendance, Timezone, and Loot Auction Improvements**
+
+---
+
+### 🧪 Initial Work – Audit Logs (Beta Start)
+
+- ✅ Alliance attendance event actions now generate an **audit log** (editing event, editing/deleting attendance records, manually adding participants via website).
+- ✅ Audit logs will eventually connect to the upcoming **Attendance Access Code** system.
+- 🔮 Future update: Full **Alliance-Wide Audit Logs** showing all actions performed via bot or website across the entire server.
+
+---
+
+### 🛠️ Minor QoL Improvements
+
+- ✅ Attendance and Signup events are now **clickable** from the **Alliance page**.
+- ✅ Alliance page widget now only displays **latest active events** (Signups, Event, or Archived).
+- ✅ Clicking on sidebar links from the **Account page** now redirects to your **first registered alliance**.
+  - *(Multi-alliance switching support coming later.)*
+
+---
+
+### 🌎 Timezone Updates (`/account` Page)
+
+- ✅ Users can now **update their timezone** manually.
+- ✅ Added **timezone search** capability.
+- ✅ A **notification** confirms when the update is successful.
+- ✅ Timestamps across the website now display:
+  - Local time
+  - UTC
+  - Paris time
+  - Japan time
+  - Relative time (hover for more detailed info)
+
+> Let us know if you prefer different default timezone displays!
+
+---
+
+### ⏳ Member Absence System Update
+
+- ✅ New **Absent Members** widget added on the **Alliance page**.
+- ✅ Added a **Reset Alliance Absents** button — mass reset all members to **active** if necessary.
+- ✅ Added an **Absent status column** to the **Players page**.
+- 🕒 **Note:** Using `/absent` or `/return` updates may take **15–30 seconds** to reflect fully in `/profile`.
+- 🔄 Future: Manual return and absence reason viewing will be added into the **User Profile page**.
+
+**Testing Feature:**  
+- 🟡 **PENDING_ABSENT** state introduced — user is still active but scheduled to become absent soon.
+
+---
+
+### 💎 Loot Auction System Changes (Major)
+
+- 🚫 **Users can no longer outbid themselves**.
+- ⏳ **New anti-sniping system**:
+  - If bidding with less than **1 hour remaining**, adds **+1 minute** to the auction timer.
+  - If bidding with less than **5 minutes remaining**, adds **+2 minutes** to the auction timer.
+
+---
+
+### 👤 User Profile Updates
+
+- ✅ **DKP History** is now starting to appear on individual user profiles.
+- ⚡ Work-in-progress — visual updates and refinements will continue over the next few days.
+
+---
+
+Stay tuned for more features and thank you for helping us continue improving Throney! 🚀  
+🖥️ Check out the [Throney Dashboard](https://www.throney.gg) | 📚 Full [Documentation Hub](https://docs.throney.gg)
+
+---
+
+## 🗓️ April 17th, 2025 – ⚙️ Patch v1.51  
+**QoL & System Updates across Loot, Loadouts, Signups, and Character Tools**
+
+---
+
+### 🔒 Character Management
+- ✅ `/delete` command now prompts for confirmation before removing a character (no more accidental wipes!).
+
+---
+
+### 💎 Loot Listings System
+- 🔁 When rerolling an item listing, all request scores now range from **0–100**.
+- 🔼 Listings are now **automatically sorted**:
+  - Priority: Upgrade > Trait > Litho
+  - Within each category, scores are sorted **highest to lowest**.
+- 🧾 Closed listings now feature a **"View Audit"** button:
+  - Shows all request scores in an **ephemeral message**.
+  - **Migration ongoing** to apply this to historical listings.
+
+---
+
+### 📋 Signups & Loadout Party Builder
+- 🧠 Added a **character role legend** in parties.
+- 🎨 Each player now has a **colored band** on the right side indicating role.
+- 🔍 **User search + class filter** added to the **Unsorted Group**.
+- 🧭 Hovering over a **role icon** now shows a **tooltip** explaining the role.
+
+---
+
+### 🛡️ Quest Log / Build Input
+- ✏️ New command: `/questlog`
+  - Users can now input their **character builds**.
+  - Build data is now **visible in `/profile`** for quick reference.
+
+---
+
+### 📊 Signups Table Redesign
+- 🔎 Added a **user search bar**.
+- 🧩 Combined all statuses (attending, absent, tentative, etc.) into **one table**.
+- 🎚️ Added a **type filter** to toggle between statuses.
+- 🔢 **Row numbers** added for easier referencing.
+- 📝 Note: If someone switches from absent → attending, they may appear **higher in the list** than new attendees.
+
+---
+
+### 🐛 Bug Fixes
+- ✅ Fixed **party ordering logic** in Loadouts & Signup Builder.
+- ✅ Deleting a character no longer **breaks their Signup/Loadout references**.
+
+---
+
+
+
+---
+## 🗓️ March 30th, 2025 Update – ⚙️ Patch v1.47 | Dynamic Events Quality of Life Overhaul + `/loadout` Launch
+
+We’ve rolled out several **quality of life improvements** to **Dynamic Events (Signups)** — making party management and attendance tracking even smoother 🚀
+
+### 🆕 New Buttons Added to Dynamic Events (Signups)
+
+#### ✅ `Parties` Button  
+Now shows party compositions directly within the signup embed.  
+Includes:
+- Party names
+- Character names for each party
+
+#### ✅ `Signups` Button  
+Displays event attendance breakdowns:
+- **Attending**
+- **Absent**
+- **Tentative**
+
+Also introduces:
+- 🟡 **Ineligible** → Users who do not have the required role  
+- ⚪ **Unknown** → Users with the required role but haven’t responded yet  
+Currently shown as pings — may switch to character names in a future update based on feedback.
+
+#### ✅ `Website` Button  
+Quick redirect to the signup's event page on the **Throney Dashboard**.
+
+#### ✅ `Ping Unknown` Button  
+An officer-only feature that:
+- Sends a **custom message** to users who haven't marked attendance
+- Labels the ping with the officer who sent it
+- Posts as a **reply to the signup message** so it's easy to respond
+
+
+### 🆕 New Public Command: `/loadout`
+
+- View **Alliance Loadouts** directly in Discord
+- Displays full party breakdowns
+- ⚠️ Skips empty parties or loadouts with no members
+
+> 🗑️ `/party` command has been removed  
+> The website’s party builder is still available for now, but will eventually be phased out.
+
+👉 We recommend converting your static party setups into **Loadouts** for smoother party planning.
+
+---
+
+### 🧪 Experimental Updates
+
+- Added redirect buttons to commands like `/loadouts`, taking users directly to the related page on the **Throney Dashboard**.
+- Small QOL enhancements to streamline dashboard navigation.
+
+---
+
+## 🗓️ **March 29th, 2025 Update** – ⚙️ v1.37 – Loadouts & Recurring Events for Signups
+
+### 🧩 **Team Builder (Loadouts) Are Now Live!**
+
+The long-awaited **party builder** is now fully integrated into **Signups** under the name **"Loadouts"** 🎉
+
+You can now instantly populate your war parties using two types of templates:
+
+- **Class Templates** (Tank, MDPS, RDPS, Healer, Bomber)  
+- **Player Templates** (assign specific players to specific slots)
+
+When importing a template:
+- It will **clear your current build**
+- **Generate parties from the template**
+- Attempt to **fill available slots** based on either class role or attendance
+
+> You can still manually edit the loadout after importing or re-import again to reset your party builds.
+
+### 🔁 **Recurring Events Now Enabled**
+
+You can now schedule events to **automatically recur every X days**!
+
+- Found in the **Signups** creation panel
+- Simply define how often you want the event to repeat
+- The bot will **duplicate the signup** and repost it on the chosen cycle
+
+### 🔔 **Ping Role Support for Signups**
+
+Introducing **"Ping Role"** on the signup creation screen:
+
+- Assign a **Discord role to ping** when the event is posted  
+- Helps boost attendance by tagging relevant groups
+
+### 📝 **Coming Soon**
+
+We're still finalizing the **Discord command integrations** for Signups:
+
+- Commands to **view who's missing**
+- Send DMs or pings to non-responders
+- More interaction and automation directly from Discord
+
+---
+
+## 🗓️ **March 28th, 2025 Update** – ⚙️ Patch v1.36  
+**Signups Party Builder Now Live, Template System Coming Soon**
+
+### 🛠️ Signups Party Builder (Live Now!)
+
+The long-awaited **Party Builder** for **Signups (Dynamic Events)** is now live! 🎉  
+You can now visually organize members into structured parties directly from the dashboard.
+
+📸 **Sneak Peek:**  
+[Preview the new system here](https://gyazo.com/bca9fcd1f1af851e49b637a7d0a8f3ab)
+
+With this update:
+- ✅ **Party layouts** can now be created and edited per event
+- ✅ Attending members can be assigned to parties manually or soon via templates
+- ✅ Parties are saved per signup event
+- ✅ Allows complete control over group structuring ahead of war content
+
+### 🔄 Coming Soon – Template System for Party Importing
+
+We're currently finalizing the **Template Import System** for Party Builder.
+
+There will be **two template types**:
+
+#### 🎭 Player Templates  
+- Templates with **specific player names** for each party slot  
+- During import, Throney will **check who is attending** and auto-place them accordingly  
+- If a player isn’t attending, their slot will remain empty  
+
+#### 🧩 Class Templates  
+- Define templates by **roles** like: `mdps`, `rdps`, `tank`, `healer`, `bomber`  
+- Throney will **randomize the attending player list** and fill roles in order  
+- Early parties will get priority; later parties may remain empty if roles are unavailable
+
+After importing:
+- You can **edit the loadout**, **add/remove players**, or **re-import** a new template as needed
+- The system will **delete current party progress** before applying a new template
+
+
+### 🔮 Still In Progress
+- ✅ Viewing built parties through Discord
+- 🛠️ Discord commands to **list non-reacted users** are on the way
+- 🛠️ Additional enhancements for seamless syncing between Discord and the dashboard
+
+
+### 🎯 Other Improvements
+- ✅ `/topwishlist` updated with a cleaner UI and error fix  
+- ✅ Minor UI/UX optimizations across the dashboard  
+
+
+🙏 Thank you for your continued patience and support as we roll out these major updates. We’re almost there!
+
+🗺️ Stay informed by checking our [Throney Roadmap](https://docs.throney.gg/updates/roadmap) for what’s next.
+
+---
+
+## 🗓️ **March 25th, 2025 Update** – ⚙️ Patch v1.26  
+**Wishlist Expansion, UI Polish & Bug Fixes**
+
+### 🎯 Wishlist System Updates
+- ✅ Added support for **Archboss** item priority in wishlists  
+- ✅ Users can now select **High**, **Medium**, **Low**, or **Archboss** priority when using `/wishlist`  
+- ✅ **Website dashboard integration** now allows officers to:
+  - Search by **item or player**
+  - View which players have which items wishlisted
+  - See all priority levels clearly categorized
+
+### 🛠️ Bug Fixes & Quality of Life Improvements
+- ✅ Fixed an issue with **manually added participants** in attendance edits not showing class information
+- ✅ Added a new **left-hand side navigation menu** to improve dashboard usability
+- ✅ Updated the **website gradient theme** for better visual clarity
+- ✅ Refreshed **buttons across all dashboard pages** for a smoother, more intuitive experience
+
+### 🧱 In Progress – Signups System Finalization
+- ✅ **Recurring events** logic is complete
+- 🛠️ **Party Builder integration** is actively being finished
+- 🔄 Full **Signups system** (Dynamic Events) enhancements coming soon
+
+Thank you for your continued support and feedback! 💚  
+
+
+---
+
+## 🗓️ **March 13th, 2025 Update** – 🎯 v1.24 - Wishlist & DKP Enhancements  
+
+We've expanded the **Wishlist System** and **improved DKP tracking** to make loot distribution smoother than ever!  
+
+---
+
+### 📜 **Wishlist Update**  
+✅ **Wishlist staff pages added to the Alliance Dashboard** – Filter by **user** or **item** to view wishlists!  
+✅ **New Staff Commands:**  
+   - `/topwishlist` – See the most **requested items** in the guild.  
+   - `/checkwishlist` – Check a specific user’s **wishlist items** _(Officer Only, now ephemeral)_.  
+✅ **Emoji Changes:**  
+   - High Priority → 🔴  
+   - Medium Priority → 🟠  
+   - Low Priority → 🟢  
+✅ **New User Commands:**  
+   - `/dkp` – Check your current **DKP balance**.  
+   - `/mywishlist` – View your **personal wishlist**.  
+
+---
+
+### 💰 **DKP System Improvements**  
+✅ **Decay Percentage & Amount Feature** – Officers can now configure **automatic DKP decay**.  
+✅ **DKP Column Added** – The **Players Leaderboard** now displays **DKP totals**.  
+✅ **DKP Reset Button** – Alliance leaders can **reset DKP** for expansions or new seasons.  
+
+---
+
+### ⚙️ **Quality of Life Additions**  
+✅ **Item Search & Date Filtering** – Added to:  
+   - **Listings Page**  
+   - **Auctions Page**  
+✅ **Signups Creation Improvements:**  
+   - Default **signup time & event time** now use **current time** by default.  
+✅ **Better Role Picker** – Easier **role selection** for configuring **Alliance, Guild, and Events**.  
+
+---
+
+### 🛠 **Coming Soon**  
+🚀 **Blind Auctions (Vickrey Auction System)** – Highest bid wins, but pays the second-highest bid amount!  
+📅 **Automated Weekly DKP Decay** – Currently **manual**, but soon officers can set a **weekly schedule**.  
+📦 **Mass Import of Loot** – Pull loot data **directly from "Item Storage Chest"** for faster DKP assignments.  
+
+---
+
+### 🔄 **In Progress**  
+⚔ **Signups Party Integration & Recurring Events**  
+✅ **Recurring Events are finished**, but not yet pushed live.  
+🛠️ **Party Integration is causing issues** and is still being worked on. Apologies for the delay!  
+
+---
+
+## 🗓️ **March 5th, 2025 Update** – ⚙️ v1.23 - Dynamic Events & Attendance Fixes  
+
+### 🎯 **Dynamic Events/Signups Updates & Hotfixes**  
+
+✅ **Fixed** Dynamic Events embed message update bug  
+✅ **Updated** Dynamic Events list page on the website  
+✅ **New QoL options for Signups (via Dashboard):**  
+   - **Delete Event** → Removes the signup message + deletes the event from the website  
+   - **Archive Event** → Deletes the original signup message + sends an archived message to a specified channel  
+✅ **Signups now clearly list user statuses:**  
+   - Attending ✅ | Absent ❌ | Tentative ❓ | Unknown ⚠  
+✅ **QoL Changes:**  
+   - **Added search functionality** when selecting channels/roles on **Alliance/Guild Pages**  
+   - **Website toast notifications** are now **more informative**  
+
+---
+
+### 📊 **Attendance & DKP Fixes**  
+
+✅ **Fixed** attendance leaderboard search filter  
+✅ **Fixed** manually added participant timestamps  
+   - ⚠ **Note:** Unfortunately, for older events, these timestamps may not be accurate. This fix will only apply to new events moving forward.  
+✅ **Added** Attendance Leaderboard + **export attendance records as .CSV**  
+✅ **Alliance Configuration:** Added option for **Active/Absent roles** (found on the **Alliance Page**)  
+✅ **Fixed** `/return` bug  
+
+📌 **New DKP Reset Button**  
+🛠️ A **DKP Reset button** has been added to the **Alliance Dashboard** to help reset DKP for the upcoming expansion if needed.  
+
+---
+
+## 🛠 **Pending Updates & Features in Development**  
+
+### 🔹 **Signups (Dynamic Events) Upcoming Features:**  
+- **Recurring events**  
+- **Party builder integration**  
+- **Default signup time set to current time**  
+- **Signups will now display timezones more explicitly**  
+
+### 🔹 **Other Upcoming Features:**  
+- **Attendance Bonus System**  
+- **DKP Leaderboard + Export Functionality**  
+- **Alliance Logs Channel**  
+- **Bulk Add Participants to Attendance**  
+
+---
+
+## 🗓️ **March 5th, 2025 Update** – ⚙️ V1.22 - 🔄 DKP Loot Auction System now Live!
+
+### 🎯 **New DKP Item/Loot Auction System!**
+
+We've expanded the **DKP system** to include a fully integrated **Auction System** for better loot distribution. This update allows **Alliance Officers** to set up auctions for items via the dashboard, while users can now **bid directly in Discord**.
+
+---
+
+### 📦 **DKP Item/Loot Auctions Update**
+✅ **Alliance Officers can now create auctions from the website**  
+   - Configure the **auction channel**, item, **starting price**, **bid increments**, and **auction end time**  
+
+✅ **Bidding System**  
+   - **Users can place bids** via a **bid button** in Discord  
+   - **Bid amount is immediately deducted** from DKP balance  
+   - If a higher bid is placed by another user, **previous bids are automatically refunded**  
+   - Users can **bid multiple times in succession** (if they have enough DKP)  
+     - 📌 Let us know if we should **restrict consecutive bids** (i.e., requiring another user to bid before bidding again)  
+
+✅ **Auction Completion & Management**  
+   - Auctions **automatically end** when the timer expires  
+   - Alliance Officers can **manually end an auction** from the dashboard  
+   - **Auctions can be deleted only from the dashboard**  
+     - 🚀 Deleting from the dashboard **automatically removes the Discord message**  
+
+📌 **Timing & Synchronization**  
+➡️ Please allow **~1 minute** for website changes (creating auctions, ending auctions early) to reflect in Discord  
+
+---
+
+### 🛠 **Upcoming Fixes & Features**
+🚧 **Currently, users cannot retract their bid, and staff cannot manually delete bids**  
+🔹 This feature will be **added in a near-future update**  
+
+---
+
+## 🗓️ **March 4th, 2025 Update** – ⚙️ v1.12 - 🔄 DKP System Overhaul & New Absence System (Beta)
+
+### 🎯 **We've heard your feedback!**
+
+Many members have found the **Greed** option confusing when claiming DKP items. To improve clarity, we've introduced **three new options** and **reaction-based item requests** to ensure players know **what they selected** and can easily remember their choice later.
+
+***
+
+### 📦 **DKP Item Listings Update**
+
+* ✅ **Changed from Need/Greed to Litho/Trait/Upgrade**
+
+* ✅ **Moved to interactive reaction buttons**
+
+* ✅ **Added ability for staff to delete listings** *(bot must have `Manage Messages` permission in that channel/server)*
+
+* ✅ **Quality of Life:** Awarding a user now **automatically rejects** other users
+
+* ✅ **Updated the website dashboard** → Now more **informative and easier to understand**
+
+* ✅ **Migration Info:**
+
+  * Old **Need/Greed votes** are still **visible on the website** but will need to be **re-voted** under **Litho, Trait, or Upgrade**
+
+  * Expect a **\~1-2 minute delay** for item listings created on the website to appear in the configured channel
+
+* ⚠ **Warning:** To avoid potential errors, always delete item listings from the **website dashboard** instead of directly in Discord.
+
+***
+
+### 🧪 **Experimental Updates – Absence System (Beta)**
+
+* 🛠️ **/absent & /return commands** are now in **beta testing**
+
+  * `/absent <From> <To> <Reason>` → Allows players to mark themselves absent
+
+  * `/return` → Allows players to return early from an absence
+
+  * Absences are reflected on **user profiles** and **announced in the configured channel**
+
+* 📌 **Future Update (Post-T2 Launch)**:
+
+  * Absences will be **visible on the dashboard**
+
+  * Status will **automatically reflect as absent** in **Signups (Dynamic Events)**, preventing users from being listed in event participation
+
+***
+
+***
+
+## 📅 March 2, 2025 Update - ⚙️ v1.11  🎯 Attendance Overhaul – Now Live!
+
+We're excited to introduce a major upgrade to the Attendance system, making it more seamless and efficient than ever!
+
+### 🔥 What's New?
+
+✅ **Edit Participants Easily** – Add or remove attendees on the fly without any hassle.
+✅ **View Absences Clearly** – See who’s missing directly from the attendance view.
+✅ **Edit Events Anytime** – Need to make changes? You can now modify event details effortlessly.
+✅ **Delete Events** – No longer needed? Clean up your schedule with a simple delete option.
+
+✨ **Minor Changes & Improvements:**
+🔹 **Dynamic Events** have been renamed to **Signups**.
+🔹 **Attendance Summary** has been renamed to **Attendance Leaderboard**.
+
+This update ensures a smoother experience for managing event attendance, keeping everything organized and up to date.
+
+Try it out now! 🚀
+
+here is a sneak peek![](/images/attendanceoverhaul.png)
+
+***
+
+## 🗓️ **February 18th Update** – ⚙️ v1.01 Patch Notes & Versioning System Update
+
+### 📌 **Adopting Semantic Versioning**
+
+Starting today, Throney will follow the **semantic versioning system** for updates:
+
+* **X.Y.Z** format
+
+  * **X** → Major Patch (Significant changes, new features, possible breaking changes)
+
+  * **Y** → Minor Patch (New features, quality-of-life improvements, small enhancements)
+
+  * **Z** → Patch Fixes (Bug fixes, optimizations, and minor tweaks)
+
+This ensures **clearer communication** about what each update brings to Throney.
+
+***
+
+### 🎯 **Onboarding & UI Improvements**
+
+* Quality-of-life improvements for the **website UI** to enhance navigation.
+
+* **Discord onboarding process streamlined** for new users.
+
+* Various tweaks to improve **overall user experience**.
+
+### 🛠️ **Bug Fixes**
+
+* Fixes applied to the **Attendance System** to improve accuracy and tracking.
+
+* Adjustments made to **DKP System calculations** to ensure proper point distribution.
+
+This update primarily focuses on **onboarding improvements and stability fixes** to **enhance usability and reliability** across Throney.
+
+***
+
+## 🗓️ **February 17th Update** – 🚀 Revamped Subscription Model
+
+### 🆕 **No More Payment Info Required for Trials!**
+
+You no longer need to provide payment details to start your **2-week trial**.
+Simply typing `/setup` will **automatically start your trial**, unlocking **all features for free** so you can explore everything **Throney has to offer**.
+
+### 🌐 **Website & Documentation Updates**
+
+* The **main website** has been updated to showcase pricing.
+
+* Support Server button and documentation have been moved to the header of the website.
+
+* The **documentation at** [docs.throney.gg](https://docs.throney.gg/) has been **completely revamped**, providing a much **easier and more structured experience**.
+
+<Note>
+  Tutorial Video Series are being developed to ensure you have every tool at hand to make use of all of Throneys features
+</Note>
+
+***
+
+## 🗓️ **February 11th Update** – 🎉 Official Launch of Throney
+
+**Throney is now officially launched!**
+Thank you to all our beta testers for your valuable feedback and suggestions! 🚀
+
+***
+
+## 🗓️ **January 31st Update** – 🔥 DKP System Enters Beta
+
+**With this update, the DKP system is now in beta and fully functional!**
+Please test it and share your feedback.
+
+### 🔄 **DKP System Changes**
+
+* **Need/Greed system**: Improved response handling and edge case coverage.
+
+* **Live updates**: Once a user clicks Need/Greed in Discord, their request is now **immediately reflected**.
+
+* **Winner Display**: When an item is awarded, the **winner is automatically updated in the embed**.
+
+* **Automatic DKP Deduction**: The system now **automatically deducts DKP points** when an item is awarded.
+
+* **UI Changes**: Various **UI improvements** for listing and requesting items.
+
+📌 **Try it out today!** Go to **Manage Items** on the dashboard and list an item to your guild.
+
+### 📊 /stats Command Update
+
+* **Reduced bloat**: The `/stats` output has been **optimized** to be more concise.
+
+* **New profile integration**: `/profile` now accurately **reflects DKP points** and displays a user's build stats.
+
+***
+
+## 🗓️ **January 26th Update** – 👤 Profile Preview & Command Updates
+
+### 🎭 **New "Preview Profile" in the Dashboard**
+
+* A **quick user profile display** has been added.
+
+* This is a **work-in-progress**, and we’d love to hear your **feedback!**
+
+### 🔄 **Command Changes**
+
+✅ **Added**
+
+* /adjust award and /adjust deduct (Replaces /award and /deduct for DKP distribution).
+
+❌ **Removed**
+
+* /gear
+
+* /award
+
+* /deduct
+
+### 🔄 /profile Overhaul
+
+* `/profile` is now the **new /gear command** with added user information.
+
+* **New feature**: Users can now **upload their base build** using `/stats` and an in-game screenshot.
+
+* **Stats display optimization** coming in the next 2 days.
+
+📝 **Note:** /stats is **optional** but highly recommended for **better guild management**.
+
+***
+
+## 🗓️ **January 17th Update** – 🛠️ Dynamic Events in Beta
+
+**Dynamic Events (Signups) are now in Beta!** Please test it and provide feedback.
+
+### ✅ **Enabled Features**
+
+✔ Available from the **Alliance Page** → Click **"Manage Dynamic Events"**
+✔ Creating new events
+✔ Signing up for events via Discord
+✔ Viewing signups in Discord & on the website
+✔ Making announcements from the **Manage Dynamic Events** page
+
+### ❌ **Disabled Features (Coming Soon)**
+
+🚫 Recurring Events
+🚫 Team Builder
+🚫 Team Composition Templates / Party Templates
+
+***
+
+## 🗓️ **January 16th Update** – 🎨 Dashboard UI Overhaul
+
+The **dashboard UI has been redesigned** for a **more intuitive and streamlined experience**.
+
+### 🏰 **For Alliance Officers**
+
+🔹 New features & layout changes are now visible!
+
+***
+
+## 🗓️ **December 11th Update** – 📝 Attendance in User Profiles
+
+* A **new attendance section** has been added to **User Profiles**.
+
+* Officers can now **see each user’s attendance records** at a glance.
+
+***
+
+## 🗓️ **December 10th Update** – 🏋️ Fortitude & Character Data Section
+
+### 🔹 **Added**
+
+✔ **Fortitude** has been added to the **Player Page**.
+✔ **Character Data Section** added to **User Profiles**.
+
+***
+
+### ✅ **Final Notes**
+
+We are constantly improving Throney based on **your feedback!** If you have **suggestions or feature requests**, please share them in our [Discord Support Server](https://discord.gg/ecrYsMDvSf)**!** 🚀

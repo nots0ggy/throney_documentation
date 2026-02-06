@@ -1,0 +1,121 @@
+---
+title: "Attendance Tracking"
+description: "Track event participation, assign DKP values, and manage attendance records."
+---
+
+The Attendance Tracking system lets officers record who attended events and automatically integrates with the **DKP System** to assign rewards based on participation.
+
+## 📌 Custom Server Events
+
+Officers can **create and edit custom server events** directly from the **Throney Dashboard** under their alliance settings. Events can be configured with:
+
+* **Custom Names:** Label the event appropriately (e.g., "Guild Meeting," "World Boss," "Siege", "Nodewar (Boon) or (Rift)").
+
+* **DKP Values (Weight System):** Assign a weight to each event, allowing it to impact the **DKP System**.
+
+* **Tracking & Logs:** Attendance records are stored and can be reviewed later for accuracy using these same values created.
+
+***
+
+## 🛠️ How to Use Attendance
+
+### **1. Creating a Custom Event**
+
+To create or edit a custom event, follow these steps:
+
+* Go to the **Throney Dashboard** and select your **alliance**.
+
+* Navigate to **"Simple Events" → "Manage Event Types"**.
+
+* Click **"Add New Event"** and enter the event details.
+
+* Set the **DKP weight** for the event.
+
+* Save the event.
+
+### **2. Taking Attendance via Command**
+
+At the end of an event, use the following command in Discord:
+
+```bash
+/attendance [event]
+```
+
+* Select the event from the available list.
+
+* The system will automatically track members present in the `same voice channel` as the officer using the command or event chat.
+
+<Note>
+  All users who attended the event must be in the same voice channel as the officer using the attendance command. If they are not in the VC at the time of the command, they will not be credited with the attendance or be given DKP.
+</Note>
+
+
+
+### 3. Editing or Adjusting Types of Events
+
+* Go to Throney Dashboard → Simple Events → Manage Event Types.
+
+* Click on an existing event to edit its details.
+
+* Modify the event name, DKP weight, or schedule.
+
+* Save the changes.
+
+This edited or newly created event will now show in the "options" when prompting the `/attendance` command and `/events` command
+
+
+## **🔄 Managing Attendance Records**
+
+Officers can **edit event details, modify attendance records, or delete events** using the **Throney Dashboard**.
+
+### **1. Accessing Attendance Records**
+* Navigate to the **Alliance Dashboard**.
+* Locate the **Events Panel** and click **"View Server Events"**.
+* This will display a list of all attendance records collected via the `/attendance` command.
+
+### **2. Editing Attendance Records**
+* Find the event you wish to modify and click **"Manage Event"**.
+* Here, you can:
+  - **Edit Participants**: Add or remove users who may have left early or were mistakenly credited.
+  - **Modify Event Type**: Adjust the event type in case the wrong one was selected during attendance.
+  - **Delete Event**: Completely remove the attendance record from the system if necessary.
+  
+<Info>
+  Changes made in the **Manage Event** section will be reflected in all attendance logs and DKP records.
+</Info>
+
+By using these tools, officers keep event tracking and DKP distribution accurate and clean.
+
+---
+
+## `/bonus` Command
+
+The `/bonus` command works identically to `/attendance` but is not tied to a specific event type. Use it for ad-hoc DKP awards like helping with guild tasks, donations, or off-schedule participation.
+
+```bash
+/bonus
+```
+
+---
+
+## Access Code System
+
+Officers can generate a secret keyword when taking attendance. Members who missed the voice channel check can enter this code afterward to register their attendance.
+
+Attendance types in the system:
+- **automatic**: Recorded via `/attendance` (voice channel detection)
+- **manual**: Added by an officer through the dashboard
+- **access_code**: Submitted by a member using the event keyword
+- **bonus**: Logged via the `/bonus` command
+
+---
+
+## Absent Player Highlighting
+
+On event detail pages, absent players are highlighted with an alert banner showing the count of members who did not attend. This makes it easy to spot who was missing at a glance.
+
+---
+
+## Bulk Event Deletion
+
+Select multiple attendance events from the table using checkboxes and delete them in one action. A confirmation dialog prevents accidental deletions. All related records (attendance entries, DKP adjustments) are removed atomically.
